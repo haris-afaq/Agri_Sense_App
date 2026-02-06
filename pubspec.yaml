@@ -1,0 +1,56 @@
+name: agri_sense_mobile_app
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/fonts/
+
+  fonts:
+    # -------- ROBOTO CONDENSED --------
+    - family: RobotoCondensed
+      fonts:
+        - asset: assets/fonts/Roboto_Condensed-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Roboto_Condensed-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Roboto_Condensed-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Roboto_Condensed-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Roboto_Condensed-Black.ttf
+          weight: 900
+
+    # -------- ROBOTO SEMI CONDENSED --------
+    - family: RobotoSemiCondensed
+      fonts:
+        - asset: assets/fonts/Roboto_SemiCondensed-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Roboto_SemiCondensed-Bold.ttf
+          weight: 700
+
+    # -------- ROBOTO EXTRA BOLD --------
+    - family: RobotoExtra
+      fonts:
+        - asset: assets/fonts/Roboto-ExtraBold.ttf
+          weight: 800

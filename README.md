@@ -1,2 +1,16 @@
-# Agri_Sense_App
-This repository contains the code of Agri Sense mobile app which is basically designed for Detecting plants diseases and give result, treatments, Preventions, also it will suggest Govt Labs to test water and Soil, and obviously it will provide all the information about soil and water testing
+# agri_sense_mobile_app
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
