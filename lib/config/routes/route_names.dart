@@ -6,4 +6,5 @@ class RouteNames {
   static const String bottomNavScreen = "bottom_nav_screen";
   static const String soilAndwaterTestingScreen = "soil_and_water_testing";
   static const String testingLabsScreen = "testing_labs_screen"; 
+  static const String forgotPassword = "forgot_password";
   }

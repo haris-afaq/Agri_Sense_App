@@ -48,7 +48,7 @@ class _DiseaseScreenState extends State<DiseaseScreen> {
               ),
         
                 SizedBox(height: 25,), 
-                Heading1(title: "Disease Detection"),
+                Heading2(title: "Disease Detection"),
                   SizedBox(height: 5,),
                   Bodytext(text: "Upload crop images and get instant AI-powered disease \ndiagnosis with treatment recommendations"),
 

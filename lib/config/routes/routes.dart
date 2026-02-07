@@ -1,5 +1,6 @@
 import 'package:agri_sense_mobile_app/config/routes/route_names.dart';
 import 'package:agri_sense_mobile_app/config/widgets/bottom_navigation_bar.dart';
+import 'package:agri_sense_mobile_app/views/auth_screen/forgor_password_screen/forgot_password.dart';
 import 'package:agri_sense_mobile_app/views/auth_screen/login_screen/login.dart';
 import 'package:agri_sense_mobile_app/views/auth_screen/sign_up_screen/sign_up.dart';
 import 'package:agri_sense_mobile_app/views/home_screen/home_screen.dart';
@@ -28,6 +29,9 @@ static Route<dynamic> generateRoute(RouteSettings settings){
 
             case RouteNames.testingLabsScreen:
       return MaterialPageRoute(builder: (_)=> TestingLabsScreen());
+
+      case RouteNames.forgotPassword:
+      return MaterialPageRoute(builder: (_)=> ForgotPasswordScreen());
 
       case RouteNames.bottomNavScreen:
       return MaterialPageRoute(builder: (context)=> const PersistentBottom());
