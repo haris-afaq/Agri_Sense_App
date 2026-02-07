@@ -12,6 +12,15 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+  flutter_svg: ^2.2.3
+  firebase_core: ^4.3.0
+  firebase_auth: ^6.1.3
+  firebase_storage: ^13.0.5
+  shared_preferences: ^2.5.4
+  bloc: ^9.1.0
+  flutter_bloc: ^9.1.1
+  equatable: ^2.0.7
+  persistent_bottom_nav_bar: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -27,7 +36,7 @@ flutter:
     - assets/fonts/
 
   fonts:
-    # -------- ROBOTO CONDENSED --------
+
     - family: RobotoCondensed
       fonts:
         - asset: assets/fonts/Roboto_Condensed-Light.ttf
@@ -41,7 +50,6 @@ flutter:
         - asset: assets/fonts/Roboto_Condensed-Black.ttf
           weight: 900
 
-    # -------- ROBOTO SEMI CONDENSED --------
     - family: RobotoSemiCondensed
       fonts:
         - asset: assets/fonts/Roboto_SemiCondensed-Regular.ttf
