@@ -3,6 +3,7 @@ import 'package:agri_sense_mobile_app/config/widgets/test_styles/body_text.dart'
 import 'package:agri_sense_mobile_app/config/widgets/test_styles/heading_1.dart';
 import 'package:agri_sense_mobile_app/config/widgets/tips_tile.dart';
 import 'package:agri_sense_mobile_app/views/home_screen/wedgits/history_cards.dart';
+import 'package:agri_sense_mobile_app/views/home_screen/wedgits/home_tiles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -68,21 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height*0.04,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image(image: AssetImage("assets/images/disease_detection_tab.png")),
-                Image(image: AssetImage("assets/images/soil_testing.png")),
-              ],
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height*0.008,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image(image: AssetImage("assets/images/water_testing.png")),
-                Image(image: AssetImage("assets/images/testing_labs_tab.png")),
-              ],
-            ),
+            HomeTiles(),
             SizedBox(height: MediaQuery.of(context).size.height*0.02,),
             TipsTile(description: "For best disease detection results, take clear photos in \nnatural daylight showing the affected area clearly.", title: "Pro Tip")
           ],
