@@ -1,5 +1,5 @@
 import 'package:agri_sense_mobile_app/config/constants/app_colors.dart';
-import 'package:agri_sense_mobile_app/config/widgets/test_styles/body_text_1.dart';
+import 'package:agri_sense_mobile_app/config/widgets/test_styles/body_text.dart';
 import 'package:agri_sense_mobile_app/config/widgets/test_styles/heading_2.dart';
 import 'package:flutter/material.dart';
 

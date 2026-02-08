@@ -1,7 +1,7 @@
 import 'package:agri_sense_mobile_app/config/constants/app_colors.dart';
 import 'package:agri_sense_mobile_app/config/routes/route_names.dart';
 import 'package:agri_sense_mobile_app/config/widgets/main_button.dart';
-import 'package:agri_sense_mobile_app/config/widgets/test_styles/body_text_1.dart';
+import 'package:agri_sense_mobile_app/config/widgets/test_styles/body_text.dart';
 import 'package:agri_sense_mobile_app/config/widgets/test_styles/heading_2.dart';
 import 'package:agri_sense_mobile_app/config/widgets/test_styles/heading_3.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class _DiseaseScreenState extends State<DiseaseScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(onPressed: (){
-        
+                    Navigator.pushNamed(context, RouteNames.loginScreen);
                   }, child: Heading3(title: "Skip",
                   titleColor: AppColors.darkGreenColor,
                   ))
