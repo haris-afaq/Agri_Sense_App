@@ -4,9 +4,14 @@ import 'package:agri_sense_mobile_app/views/auth_screen/forgor_password_screen/f
 import 'package:agri_sense_mobile_app/views/auth_screen/login_screen/login.dart';
 import 'package:agri_sense_mobile_app/views/auth_screen/sign_up_screen/sign_up.dart';
 import 'package:agri_sense_mobile_app/views/home_screen/home_screen.dart';
+import 'package:agri_sense_mobile_app/views/soil_testing_screen/soil_testing_sample_guide_screen.dart';
+import 'package:agri_sense_mobile_app/views/soil_testing_screen/soil_testing_screen.dart';
 import 'package:agri_sense_mobile_app/views/splash_screen/other_splashs/soil_and_water_testing_screen.dart';
 import 'package:agri_sense_mobile_app/views/splash_screen/other_splashs/testing_labs_screen.dart';
 import 'package:agri_sense_mobile_app/views/splash_screen/splash_screen.dart';
+import 'package:agri_sense_mobile_app/views/testing_labs/testing_labs.dart';
+import 'package:agri_sense_mobile_app/views/water_testing_screen/water_testing_sample_guide_screen.dart';
+import 'package:agri_sense_mobile_app/views/water_testing_screen/water_testing_screen.dart';
 import 'package:flutter/material.dart';
 
 class Routes{
@@ -32,6 +37,21 @@ static Route<dynamic> generateRoute(RouteSettings settings){
 
       case RouteNames.forgotPassword:
       return MaterialPageRoute(builder: (_)=> ForgotPasswordScreen());
+
+      case RouteNames.waterTestingScreen:
+      return MaterialPageRoute(builder: (_)=> WaterTestingScreen());
+
+      case RouteNames.waterTestingSampleGuideScreen:
+      return MaterialPageRoute(builder: (_)=> WaterTestingSampleGuideScreen());
+
+      case RouteNames.soilTestingScreen:
+      return MaterialPageRoute(builder: (_)=> SoilTestingScreen());
+
+      case RouteNames.soilTestingSampleGuideScreen:
+      return MaterialPageRoute(builder: (_)=> SoilTestingSampleGuideScreen());
+
+      case RouteNames.testingLabs:
+      return MaterialPageRoute(builder: (_)=> TestingLabs());
 
       case RouteNames.bottomNavScreen:
       return MaterialPageRoute(builder: (context)=> const PersistentBottom());

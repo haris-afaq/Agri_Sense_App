@@ -1,4 +1,8 @@
+import 'package:agri_sense_mobile_app/config/routes/route_names.dart';
+import 'package:agri_sense_mobile_app/views/water_testing_screen/water_testing_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class HomeTiles extends StatefulWidget {
   const HomeTiles({super.key});
@@ -21,11 +25,19 @@ class _HomeTilesState extends State<HomeTiles> {
                 HomeCard(onTap: (){}, assetPath: "assets/images/soil_testing.png")
               ],
             ),
-            SizedBox(height: MediaQuery.of(context).size.height*0.008,),
+            // SizedBox(height: MediaQuery.of(context).size.height*0.008,),
+            SizedBox(height: 5.h,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                HomeCard(onTap: (){}, assetPath: "assets/images/water_testing.png"),
+                HomeCard(onTap: (){
+                  PersistentNavBarNavigator.pushNewScreen(context, 
+                  screen: WaterTestingScreen(),
+                  withNavBar: false,
+                  pageTransitionAnimation: PageTransitionAnimation.cupertino
+                  );
+
+                }, assetPath: "assets/images/water_testing.png"),
                 // Image(image: AssetImage("assets/images/water_testing.png")),
                 HomeCard(onTap: (){}, assetPath: "assets/images/testing_labs_tab.png")
                 // Image(image: AssetImage("assets/images/testing_labs_tab.png")),
@@ -62,8 +74,8 @@ class HomeCard extends StatelessWidget {
       onTap: onTap,
       child: Image.asset(
         assetPath,
-        width: width,
-        height: height,
+        width: 160.w,
+        height: 160,
         fit: fit,
       ),
     );

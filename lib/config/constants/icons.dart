@@ -19,4 +19,5 @@ class AppIcons {
     static const String historyActive = "${_base}history_active.svg";
   static const String historyInactive = "${_base}history_inactive.svg";
 
+
 }

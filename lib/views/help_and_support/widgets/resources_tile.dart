@@ -8,6 +8,7 @@ class ResourcesTile extends StatelessWidget {
   final String description;
   final Widget icon;
   final VoidCallback onPressed;
+  final Color backgroundColor;
 
   const ResourcesTile({
     super.key,
@@ -15,6 +16,7 @@ class ResourcesTile extends StatelessWidget {
     required this.description,
     required this.icon,
     required this.onPressed,
+    this.backgroundColor = AppColors.whiteColor
   });
 
   @override
@@ -22,6 +24,7 @@ class ResourcesTile extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
+        color: backgroundColor ,
         borderRadius: BorderRadius.circular(5),
         border: Border.all(color: AppColors.shadowGreyColor),
       ),

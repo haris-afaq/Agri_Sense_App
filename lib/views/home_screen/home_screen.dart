@@ -69,9 +69,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height*0.04,),
-            HomeTiles(),
-            SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-            TipsTile(description: "For best disease detection results, take clear photos in \nnatural daylight showing the affected area clearly.", title: "Pro Tip")
+Padding(
+  padding: const EdgeInsets.symmetric(horizontal: 20),
+  child: Column(
+    children: [
+                  HomeTiles(),
+              SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+              TipsTile(description: "For best disease detection results, take clear photos in \nnatural daylight showing the affected area clearly.", title: "Pro Tip")
+    ],
+  ),
+)
           ],
         ),
       ),
