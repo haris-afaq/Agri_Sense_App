@@ -3,10 +3,12 @@ import 'package:agri_sense_mobile_app/config/widgets/app_bar.dart';
 import 'package:agri_sense_mobile_app/config/widgets/main_button.dart';
 import 'package:agri_sense_mobile_app/config/widgets/tips_tile.dart';
 import 'package:agri_sense_mobile_app/views/help_and_support/widgets/resources_tile.dart';
+import 'package:agri_sense_mobile_app/views/testing_labs/testing_labs.dart';
 import 'package:agri_sense_mobile_app/views/water_testing_screen/widgets/water_testing_tips.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class WaterTestingSampleGuideScreen extends StatefulWidget {
   const WaterTestingSampleGuideScreen({super.key});
@@ -39,8 +41,16 @@ class _WaterTestingSampleGuideScreenState extends State<WaterTestingSampleGuideS
              icon: SvgPicture.asset("assets/icons/next_icon.svg"),
               onPressed: (){}),
               SizedBox(height: 20.h,),
-              MainButton(title: "Find Testing Labs", onTap: (){}),
+              MainButton(title: "Find Testing Labs", onTap: (){
+                PersistentNavBarNavigator.pushNewScreen(
+                  context,
+                   screen: TestingLabs(),
+                   withNavBar: false,
+                   pageTransitionAnimation: PageTransitionAnimation.cupertino
+                   );
+              }),
               SizedBox(height: 20.h,),
+              
           ],),
         ),
       ),
