@@ -1,6 +1,11 @@
+import 'package:agri_sense_mobile_app/bloc/signup_bloc/signup_bloc.dart';
+import 'package:agri_sense_mobile_app/bloc/signup_bloc/signup_events.dart';
+import 'package:agri_sense_mobile_app/bloc/signup_bloc/signup_states.dart';
 import 'package:agri_sense_mobile_app/config/widgets/test_styles/body_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: must_be_immutable
 class PasswordInputField extends StatefulWidget {
   FocusNode passwordFocusNode;
    PasswordInputField({super.key,
@@ -16,7 +21,10 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
   bool isPasswordVisible = true;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return BlocBuilder<SignupBloc, SignupStates>(
+      buildWhen: (current, previous)=> current.password != previous.password,
+      builder: (context, state){
+      return TextFormField(
                           focusNode: widget.passwordFocusNode,
                           obscureText: isPasswordVisible,
                           keyboardType: TextInputType.text,
@@ -33,7 +41,7 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
                                icon: Icon(isPasswordVisible? Icons.visibility_off_outlined : Icons.visibility_outlined))
                           ),
                           onChanged: (value){
-          
+          context.read<SignupBloc>().add(PasswordChanged(password: value));
                           },
                           onFieldSubmitted: (value){},
                           validator: (value){
@@ -48,5 +56,6 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
                             }
                           },
                          );
+    });
   }
 }

@@ -1,5 +1,7 @@
+import 'package:agri_sense_mobile_app/bloc/signup_bloc/signup_bloc.dart';
 import 'package:agri_sense_mobile_app/config/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'wedgits/wedgits.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -31,7 +33,10 @@ class _SignupScreenState extends State<SignupScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider<SignupBloc>(
+      create:(_)=> SignupBloc(),
+      
+      child: Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: SingleChildScrollView(
         child: SafeArea(
@@ -64,6 +69,6 @@ class _SignupScreenState extends State<SignupScreen> {
           ),
         ),
       ),
-    );
+    ),);
   }
 }
