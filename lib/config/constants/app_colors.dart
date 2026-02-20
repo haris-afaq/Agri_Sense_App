@@ -10,5 +10,6 @@ class AppColors {
   static const redColor = Color(0xffff0000);
   static const shadowGreyColor = Color(0xffBDBDBD);
   static const skinColor1 = Color(0xffF3D2AF);
+  static const reviewStarColor = Color(0xffFCDA06);
   
 }

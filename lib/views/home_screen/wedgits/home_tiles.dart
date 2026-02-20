@@ -1,5 +1,5 @@
-import 'package:agri_sense_mobile_app/config/routes/route_names.dart';
 import 'package:agri_sense_mobile_app/views/soil_testing_screen/soil_testing_screen.dart';
+import 'package:agri_sense_mobile_app/views/testing_labs/testing_labs.dart';
 import 'package:agri_sense_mobile_app/views/water_testing_screen/water_testing_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -48,7 +48,14 @@ class _HomeTilesState extends State<HomeTiles> {
 
                 }, assetPath: "assets/images/water_testing.png"),
                 // Image(image: AssetImage("assets/images/water_testing.png")),
-                HomeCard(onTap: (){}, assetPath: "assets/images/testing_labs_tab.png")
+                HomeCard(onTap: (){
+                  PersistentNavBarNavigator.pushNewScreen(
+                    context, 
+                    screen: TestingLabs(),
+                    withNavBar: false,
+                    pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                    );
+                }, assetPath: "assets/images/testing_labs_tab.png")
                 // Image(image: AssetImage("assets/images/testing_labs_tab.png")),
               ],
             ),

@@ -16,10 +16,10 @@ class _FaqsState extends State<Faqs> {
         
         SizedBox(height: 10,),
             FaqItem(question: "How does disease detection work?", 
-            answer: "Our AI-powered system analyzes images of your crops to \nidentify diseases. Simply take a clear photo of the affected area, \nselect the crop type, and our system will provide detailed \nanalysis including disease name, severity, and treatment \nrecommendations."),
+            answer: "Our AI-powered system analyzes images of your crops to identify diseases. Simply take a clear photo of the affected area, select the crop type, and our system will provide detailed analysis including disease name, severity, and treatment recommendations."),
            
             FaqItem(question: "How accurate is the soil testing?", 
-            answer: "Our quick soil test provides an estimate based on visual \nanalysis. For precise results, we recommend visiting a certified \ntesting lab. The app helps you find nearby labs and guides you \non proper sample collection."),
+            answer: "Our quick soil test provides an estimate based on visual analysis. For precise results, we recommend visiting a certified testing lab. The app helps you find nearby labs and guides you on proper sample collection."),
            
             FaqItem(question: "How do I collect soil samples correctly?", 
             answer: "Go to Soil Testing > Sample Collection Guide for detailed \nsteps. Key points: collect from 6-8 inches depth, take \nsamples from multiple spots, mix thoroughly, and submit \nto lab within 24 hours."),
