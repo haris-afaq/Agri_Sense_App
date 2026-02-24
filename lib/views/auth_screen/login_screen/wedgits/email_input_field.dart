@@ -1,6 +1,11 @@
+import 'package:agri_sense_mobile_app/bloc/login_bloc/login_bloc.dart';
+import 'package:agri_sense_mobile_app/bloc/login_bloc/login_ervents.dart';
+import 'package:agri_sense_mobile_app/bloc/login_bloc/login_states.dart';
 import 'package:agri_sense_mobile_app/config/widgets/test_styles/body_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: must_be_immutable
 class EmailInputField extends StatefulWidget {
 
   FocusNode emailFocusNode;
@@ -16,7 +21,10 @@ class EmailInputField extends StatefulWidget {
 class _EmailInputFieldState extends State<EmailInputField> {
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return BlocBuilder<LoginBloc, LoginStates>(
+      buildWhen: (previous, current) => previous.email != current.email,
+      builder: (context, state){
+      return TextFormField(
                     focusNode: widget.emailFocusNode,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
@@ -25,7 +33,7 @@ class _EmailInputFieldState extends State<EmailInputField> {
                       label: Bodytext(text: "Email")
                     ),
                     onChanged: (value){
-        
+        context.read<LoginBloc>().add(EmailChanged(email: value));
                     },
                     onFieldSubmitted: (value){},
                     validator: (value){
@@ -38,5 +46,6 @@ class _EmailInputFieldState extends State<EmailInputField> {
                               }
                             },
                   );
+    });
   }
 }

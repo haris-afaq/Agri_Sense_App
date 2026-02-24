@@ -1,5 +1,7 @@
+import 'package:agri_sense_mobile_app/bloc/login_bloc/login_bloc.dart';
 import 'package:agri_sense_mobile_app/config/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'wedgits/wedgit.dart';
 
@@ -27,7 +29,10 @@ class _LoginScreenState extends State<LoginScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider<LoginBloc>(
+      create: (_)=> LoginBloc(),
+      
+      child: Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: SingleChildScrollView(
         child: SafeArea(child: Padding(
@@ -55,6 +60,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         )),
       ),
-    );
+    ),);
   }
 }
