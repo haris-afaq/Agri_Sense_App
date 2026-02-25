@@ -96,7 +96,7 @@ class _LoginButtonState extends State<LoginButton> {
     return BlocListener<LoginBloc, LoginStates>(
       listenWhen: (previous, current) =>
           previous.authStates != current.authStates,
-      listener: (context, state) {
+      listener: (context, state) async{
 
         if (state.authStates == AuthStates.loading) {
           CustomSnackbar.show(
@@ -113,16 +113,39 @@ class _LoginButtonState extends State<LoginButton> {
             backgroundColor: AppColors.redColor,
           );
         }
-
         else if (state.authStates == AuthStates.success) {
-          CustomSnackbar.show(
-            context,
-            text: "Account successfully logged in",
-            backgroundColor: AppColors.darkGreenColor,
-          );
+  CustomSnackbar.show(
+    context,
+    text: "Account successfully logged in",
+    backgroundColor: AppColors.darkGreenColor,
+  );
 
-          _showLocationDialog();
-        }
+  LocationPermission permission = await Geolocator.checkPermission();
+
+  if (permission == LocationPermission.denied ||
+      permission == LocationPermission.deniedForever) {
+    _showLocationDialog();
+  } else {
+    //location already accessed
+    await _getCurrentLocation();
+
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      RouteNames.bottomNavScreen,
+      (route) => false,
+    );
+  }
+}
+
+        // else if (state.authStates == AuthStates.success) {
+        //   CustomSnackbar.show(
+        //     context,
+        //     text: "Account successfully logged in",
+        //     backgroundColor: AppColors.darkGreenColor,
+        //   );
+
+        //   _showLocationDialog();
+        // }
       },
       child: BlocBuilder<LoginBloc, LoginStates>(
         builder: (context, state) {

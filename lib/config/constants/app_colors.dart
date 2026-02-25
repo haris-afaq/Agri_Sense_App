@@ -11,5 +11,6 @@ class AppColors {
   static const shadowGreyColor = Color(0xffBDBDBD);
   static const skinColor1 = Color(0xffF3D2AF);
   static const reviewStarColor = Color(0xffFCDA06);
+  static const logoutButtonColor = Color(0xffff7b7b);
   
 }
