@@ -1,3 +1,4 @@
+import 'package:agri_sense_mobile_app/views/disease_detection_screen/disease_detection_screen.dart';
 import 'package:agri_sense_mobile_app/views/soil_testing_screen/soil_testing_screen.dart';
 import 'package:agri_sense_mobile_app/views/testing_labs/testing_labs.dart';
 import 'package:agri_sense_mobile_app/views/water_testing_screen/water_testing_screen.dart';
@@ -20,9 +21,15 @@ class _HomeTilesState extends State<HomeTiles> {
         Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                HomeCard(onTap: (){}, assetPath: "assets/images/disease_detection_tab.png"),
-                //Image(image: AssetImage("assets/images/disease_detection_tab.png")),
-                //Image(image: AssetImage("assets/images/soil_testing.png")),
+                HomeCard(onTap: (){
+                  PersistentNavBarNavigator.pushNewScreen(
+                    context,
+                     screen: DiseaseDetectionScreen(),
+                     withNavBar: false,
+                     pageTransitionAnimation: PageTransitionAnimation.cupertino
+                     );
+                }, assetPath: "assets/images/disease_detection_tab.png"),
+            
                 HomeCard(onTap: (){
                   PersistentNavBarNavigator.pushNewScreen(
                     context, 
@@ -35,7 +42,7 @@ class _HomeTilesState extends State<HomeTiles> {
               ],
             ),
             // SizedBox(height: MediaQuery.of(context).size.height*0.008,),
-            SizedBox(height: 5.h,),
+            // SizedBox(height: 0.5.h,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

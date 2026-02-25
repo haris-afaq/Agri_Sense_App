@@ -1,12 +1,10 @@
 import 'package:agri_sense_mobile_app/config/constants/app_colors.dart';
-import 'package:agri_sense_mobile_app/config/routes/route_names.dart';
 import 'package:agri_sense_mobile_app/config/widgets/test_styles/body_text.dart';
 import 'package:agri_sense_mobile_app/config/widgets/test_styles/heading_1.dart';
 import 'package:agri_sense_mobile_app/config/widgets/tips_tile.dart';
 import 'package:agri_sense_mobile_app/views/home_screen/wedgits/history_cards.dart';
 import 'package:agri_sense_mobile_app/views/home_screen/wedgits/home_tiles.dart';
 import 'package:agri_sense_mobile_app/views/profile_screen/profile_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';

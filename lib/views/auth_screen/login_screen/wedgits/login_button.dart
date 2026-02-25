@@ -126,7 +126,7 @@ class _LoginButtonState extends State<LoginButton> {
       permission == LocationPermission.deniedForever) {
     _showLocationDialog();
   } else {
-    //location already accessed
+
     await _getCurrentLocation();
 
     Navigator.pushNamedAndRemoveUntil(

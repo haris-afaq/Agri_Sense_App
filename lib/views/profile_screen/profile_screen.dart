@@ -34,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            const SizedBox(height: 30),
+            SizedBox(height: MediaQuery.of(context).size.height*0.05,),
             MainButton(
               title: "Logout",
               color: AppColors.logoutButtonColor,
