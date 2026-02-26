@@ -18,8 +18,10 @@ class _ScanningOverlayState extends State<ScanningOverlay>
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
+    _controller = AnimationController(
+      vsync: this, 
+      duration: const Duration(seconds: 2)
+    );
     _animation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(parent: _controller, curve: Curves.linear),
     );
@@ -42,8 +44,8 @@ class _ScanningOverlayState extends State<ScanningOverlay>
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           border: Border(
-            top: BorderSide(color: AppColors.lightGreenColor, width: 10),
-            left: BorderSide(color:AppColors.lightGreenColor, width: 10),
+            top: const BorderSide(color: AppColors.lightGreenColor, width: 10),
+            left: const BorderSide(color: AppColors.lightGreenColor, width: 10),
           ),
         ),
       ),
@@ -60,8 +62,8 @@ class _ScanningOverlayState extends State<ScanningOverlay>
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           border: Border(
-            bottom: BorderSide(color: AppColors.lightGreenColor, width: 10),
-            right: BorderSide(color: AppColors.lightGreenColor, width: 10),
+            bottom: const BorderSide(color: AppColors.lightGreenColor, width: 10),
+            right: const BorderSide(color: AppColors.lightGreenColor, width: 10),
           ),
         ),
       ),
@@ -88,44 +90,42 @@ class _ScanningOverlayState extends State<ScanningOverlay>
                 ),
               ),
 
-              // Top-left corner
               _buildCorner(0, 0, 40, 40),
-              // Top-right corner
-              Positioned(
-                  top: 0,
-                  right: 0,
-                  child: Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border(
-                        top: BorderSide(color: AppColors.lightGreenColor, width: 10),
-                        right: BorderSide(color: AppColors.lightGreenColor, width: 10),
-                      ),
-                    ),
-                  )),
 
-              // Bottom-left corner
               Positioned(
-                  bottom: 0,
-                  left: 0,
-                  child: Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border(
-                        bottom: BorderSide(color: AppColors.lightGreenColor, width: 10),
-                        left: BorderSide(color: AppColors.lightGreenColor, width: 10),
-                      ),
+                top: 0,
+                right: 0,
+                child: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border(
+                      top: const BorderSide(color: AppColors.lightGreenColor, width: 10),
+                      right: const BorderSide(color: AppColors.lightGreenColor, width: 10),
                     ),
-                  )),
+                  ),
+                ),
+              ),
 
-              // Bottom-right corner
+              Positioned(
+                bottom: 0,
+                left: 0,
+                child: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border(
+                      bottom: const BorderSide(color: AppColors.lightGreenColor, width: 10),
+                      left: const BorderSide(color: AppColors.lightGreenColor, width: 10),
+                    ),
+                  ),
+                ),
+              ),
+
               _buildCornerBottomRight(0, 0, 40, 40),
 
-              // Scanning line animation
               AnimatedBuilder(
                 animation: _animation,
                 builder: (context, child) {
@@ -140,8 +140,6 @@ class _ScanningOverlayState extends State<ScanningOverlay>
                   );
                 },
               ),
-
-              // Analyzing text
               Positioned(
                 bottom: 10,
                 left: 0,
@@ -153,6 +151,29 @@ class _ScanningOverlayState extends State<ScanningOverlay>
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black.withOpacity(0.5),
+                          offset: const Offset(1, 1),
+                          blurRadius: 2,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+
+              Positioned(
+                bottom: 40,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    child: const CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(AppColors.lightGreenColor),
+                      strokeWidth: 3,
                     ),
                   ),
                 ),

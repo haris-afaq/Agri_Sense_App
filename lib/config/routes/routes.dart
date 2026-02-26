@@ -3,6 +3,7 @@ import 'package:agri_sense_mobile_app/config/widgets/bottom_navigation_bar.dart'
 import 'package:agri_sense_mobile_app/views/auth_screen/forgort_password_screen/forgot_password.dart';
 import 'package:agri_sense_mobile_app/views/auth_screen/login_screen/login.dart';
 import 'package:agri_sense_mobile_app/views/auth_screen/sign_up_screen/sign_up.dart';
+import 'package:agri_sense_mobile_app/views/history_screen/history_screen.dart';
 import 'package:agri_sense_mobile_app/views/home_screen/home_screen.dart';
 import 'package:agri_sense_mobile_app/views/soil_testing_screen/soil_testing_sample_guide_screen.dart';
 import 'package:agri_sense_mobile_app/views/soil_testing_screen/soil_testing_screen.dart';
@@ -52,6 +53,9 @@ static Route<dynamic> generateRoute(RouteSettings settings){
 
       case RouteNames.testingLabs:
       return MaterialPageRoute(builder: (_)=> TestingLabs());
+      
+      case RouteNames.historySreen:
+      return MaterialPageRoute(builder: (_)=> HistoryScreen());
 
       case RouteNames.bottomNavScreen:
       return MaterialPageRoute(builder: (context)=> const PersistentBottom());

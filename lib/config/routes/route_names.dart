@@ -12,5 +12,6 @@ class RouteNames {
   static const String soilTestingScreen = "soil_testing_screen";
   static const String soilTestingSampleGuideScreen = "soil_testing_sample_guide";
   static const String testingLabs = "testing_labs";
+  static const String historySreen =  "history_screen";
   
   }

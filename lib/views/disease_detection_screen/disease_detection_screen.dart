@@ -19,6 +19,7 @@ class DiseaseDetectionScreen extends StatefulWidget {
 
 class _DiseaseDetectionScreenState extends State<DiseaseDetectionScreen> {
   File? _uploadedImage; 
+  bool _isScanning = false;
 
   void _setUploadedImage(File? image) {
     setState(() {
@@ -26,35 +27,55 @@ class _DiseaseDetectionScreenState extends State<DiseaseDetectionScreen> {
     });
   }
 
-void _startScanning() {
-  if (_uploadedImage == null) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Please upload an image first")),
+  void _startScanning() {
+    if (_isScanning) return;
+    
+    if (_uploadedImage == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please upload an image first"),
+          backgroundColor: AppColors.logoutButtonColor,
+        ),
+      );
+      return;
+    }
+
+    setState(() {
+      _isScanning = true;
+    });
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => ScanningOverlay(image: _uploadedImage!),
     );
-    return;
+
+
+    Future.delayed(const Duration(seconds: 5), () {
+      if (mounted) {
+        Navigator.of(context).pop();
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ScanResultsScreen(
+              image: _uploadedImage!,
+              predictionData: {
+                "label": "peach bacterial spot",
+                "confidence": 0.82,
+                "index": 16,
+              },
+            ),
+          ),
+        ).then((_) {
+          if (mounted) {
+            setState(() {
+              _isScanning = false;
+            });
+          }
+        });
+      }
+    });
   }
-
-
-  showDialog(
-    context: context,
-    barrierDismissible: false,
-    builder: (_) => ScanningOverlay(image: _uploadedImage!),
-  );
-
-
-  Future.delayed(Duration(seconds: 5), () {
-    Navigator.of(context).pop();
-
-   Navigator.push(
-  context,
-  MaterialPageRoute(
-    builder: (context) => ScanResultsScreen(image: _uploadedImage!),
-  ),
-);
-  });
-}
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -78,11 +99,15 @@ void _startScanning() {
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               TipsTile(
-                  title: "Tips for Best results:",
-                  description:
-                      "*   Take photos in natural day light\n*   Focus on the effected area\n*   Avoid blury images\n*   Include multiple angles if possible"),
+                title: "Tips for Best results:",
+                description:
+                    "*   Take photos in natural day light\n*   Focus on the effected area\n*   Avoid blury images\n*   Include multiple angles if possible",
+              ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.06),
-              MainButton(title: "Start Scaning", onTap: _startScanning),
+              MainButton(
+                title: "Start Scanning", 
+                onTap: _startScanning,
+              ),
             ],
           ),
         ),
