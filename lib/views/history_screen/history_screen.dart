@@ -1,3 +1,4 @@
+import 'package:agri_sense_mobile_app/config/widgets/custom_snackbar.dart';
 import 'package:agri_sense_mobile_app/views/history_screen/controller/history_controller.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
@@ -20,7 +21,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Scan History"),
+        title: Heading2(title: "Scan History",
+        titleColor: AppColors.whiteColor,
+        ),
         backgroundColor: AppColors.darkGreenColor,
         foregroundColor: AppColors.whiteColor,
         actions: [
@@ -38,13 +41,16 @@ class _HistoryScreenState extends State<HistoryScreen> {
           ),
         ],
       ),
-      body: Consumer<HistoryController>(
-        builder: (context, controller, child) {
-          if (controller.historyItems.isEmpty) {
-            return _buildEmptyState();
-          }
-          return _buildHistoryList(controller);
-        },
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Consumer<HistoryController>(
+          builder: (context, controller, child) {
+            if (controller.historyItems.isEmpty) {
+              return _buildEmptyState();
+            }
+            return _buildHistoryList(controller);
+          },
+        ),
       ),
     );
   }
@@ -104,6 +110,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
   Widget _buildHistoryCard(BuildContext context, HistoryItem item, HistoryController controller) {
     return Card(
+      color: AppColors.whiteColor,
       margin: const EdgeInsets.only(bottom: 12),
       elevation: 2,
       shape: RoundedRectangleBorder(
@@ -243,12 +250,16 @@ class _HistoryScreenState extends State<HistoryScreen> {
             onPressed: () {
               controller.deleteHistoryItem(item.id);
               Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text("Item deleted"),
-                  duration: Duration(seconds: 1),
-                ),
+              CustomSnackbar.show(context, 
+              text: "Item deleted",
+              backgroundColor: AppColors.darkGreenColor
               );
+              // ScaffoldMessenger.of(context).showSnackBar(
+              //   const SnackBar(
+              //     content: Text(""),
+              //     duration: Duration(seconds: 1),
+              //   ),
+              // );
             },
             style: TextButton.styleFrom(
               foregroundColor: AppColors.redColor,
@@ -275,12 +286,13 @@ class _HistoryScreenState extends State<HistoryScreen> {
             onPressed: () {
               controller.clearAllHistory();
               Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text("All history cleared"),
-                  duration: Duration(seconds: 2),
-                ),
-              );
+              CustomSnackbar.show(context, text: "All history cleared", backgroundColor: AppColors.darkGreenColor);
+              // ScaffoldMessenger.of(context).showSnackBar(
+              //   const SnackBar(
+              //     content: Text("All history cleared"),
+              //     duration: Duration(seconds: 2),
+              //   ),
+              // );
             },
             style: TextButton.styleFrom(
               foregroundColor: AppColors.redColor,

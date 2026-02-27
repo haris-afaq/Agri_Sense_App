@@ -29,7 +29,7 @@ class HistoryController extends ChangeNotifier {
         _historyItems = jsonList
             .map((json) => HistoryItem.fromJson(json))
             .toList()
-          ..sort((a, b) => b.dateTime.compareTo(a.dateTime)); // Sort by date (newest first)
+          ..sort((a, b) => b.dateTime.compareTo(a.dateTime)); 
       }
     } catch (e) {
       print('Error loading history: $e');

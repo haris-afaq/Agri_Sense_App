@@ -23,8 +23,8 @@ class ModelController extends ChangeNotifier {
 
   Future<void> _loadModel() async {
     try {
-      print("📱 Attempting to load model from: ${AssetsRes.MODEL}");
-      print("📱 Attempting to load labels from: ${AssetsRes.LABELS}");
+      print("Attempting to load model from: ${AssetsRes.MODEL}");
+      print("Attempting to load labels from: ${AssetsRes.LABELS}");
       
       final res = await Tflite.loadModel(
         model: AssetsRes.MODEL,
@@ -34,12 +34,12 @@ class ModelController extends ChangeNotifier {
         useGpuDelegate: false,
       );
       
-      print("✅ TFLite model loaded successfully: $res");
+      print("TFLite model loaded successfully: $res");
       _modelLoaded = true;
       _modelLoadError = '';
       notifyListeners();
     } catch (e) {
-      print("❌ Error loading TFLite model: $e");
+      print("Error loading TFLite model: $e");
       _modelLoaded = false;
       _modelLoadError = e.toString();
       notifyListeners();
@@ -48,33 +48,33 @@ class ModelController extends ChangeNotifier {
 
   @override
   void dispose() {
-    print("📱 Closing TFLite model");
+    print("Closing TFLite model");
     Tflite.close();
     super.dispose();
   }
 
   Future<Map<String, dynamic>?> prediction(String filepath) async {
-    print("🔍 Starting prediction for: $filepath");
+    print("tarting prediction for: $filepath");
     
     if (filepath.isEmpty) {
-      print("❌ Error: Empty file path");
+      print("Error: Empty file path");
       return null;
     }
 
     if (!_modelLoaded) {
-      print("❌ Model not loaded yet");
+      print("Model not loaded yet");
       return null;
     }
 
     try {
       final file = File(filepath);
       if (!await file.exists()) {
-        print("❌ Error: File does not exist");
+        print("Error: File does not exist");
         return null;
       }
       
       final fileSize = await file.length();
-      print("📸 Image file size: ${fileSize / 1024} KB");
+      print("Image file size: ${fileSize / 1024} KB");
 
       var recognitions = await Tflite.runModelOnImage(
         path: filepath,
@@ -85,10 +85,10 @@ class ModelController extends ChangeNotifier {
         asynch: true,
       );
 
-      print("📊 Raw recognitions: $recognitions");
+      print("Raw recognitions: $recognitions");
 
       if (recognitions == null || recognitions.isEmpty) {
-        print("❌ No recognitions");
+        print("No recognitions");
         return null;
       }
 
@@ -112,17 +112,17 @@ class ModelController extends ChangeNotifier {
 
       String label = rawLabel.trim();
       
-      print("📝 Final label: '$label' with confidence: $confidence");
+      print("Final label: '$label' with confidence: $confidence");
 
       const double minConfidence = 0.3;
       
       if (confidence < minConfidence) {
-        print("❌ Low confidence");
+        print("Low confidence");
         return null;
       }
 
       if (label.toLowerCase().contains("background")) {
-        print("❌ Background detected");
+        print("Background detected");
         return null;
       }
 
@@ -132,12 +132,12 @@ class ModelController extends ChangeNotifier {
         "index": index,
       };
 
-      print("✅ Accepted prediction: $data");
+      print("Accepted prediction: $data");
       notifyListeners();
 
       return data;
     } catch (e) {
-      print("❌ Prediction failed: $e");
+      print("Prediction failed: $e");
       return null;
     }
   }
@@ -165,7 +165,7 @@ class ModelController extends ChangeNotifier {
         }
       }
     } catch (e) {
-      print("❌ Gallery picking failed: $e");
+      print("Gallery picking failed: $e");
     }
   }
 
@@ -215,7 +215,7 @@ class ModelController extends ChangeNotifier {
         }
       }
     } catch (e) {
-      print("❌ Camera picking failed: $e");
+      print("Camera picking failed: $e");
     }
   }
 
